@@ -1,0 +1,46 @@
+$sidebar-width: 280px;
+
+// 行動版 (預設)
+.sidebar{
+    width: $sidebar-width;
+    margin-left: -$sidebar-width;
+    // 設定動畫於margin-left時變化，動畫的時間越短越好
+    transition: margin-left .25s;
+}
+
+.main {
+    width: 100%;
+}
+
+// 展開sidebar用
+.sidebar-toggled {
+    .sidebar {
+        margin-left: 0;
+    }
+}
+
+
+// 桌面版(up)
+@include media-breakpoint-up(lg) {
+    .sidebar{
+        width: $sidebar-width;
+        // 預設加上margin-left的話，於桌面版也會套用行動版設定，故需要再把大小改回來0
+        margin-left: 0;
+    }
+    
+    .main {
+        width: calc(100vw - #{$sidebar-width});
+    }
+
+    // 展開sidebar用(桌面版)
+    .sidebar-toggled {
+        .sidebar {
+            margin-left: -$sidebar-width;
+        }
+        .main {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}
+
