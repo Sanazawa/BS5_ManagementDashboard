@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Dashboard</title>
+    <link rel="stylesheet" href="./stylesheets/all.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+    <div class="d-flex">
+        <aside class="sidebar vh-100 border-end d-flex pt-3 bg-white flex-column">
+            <!-- 後台名稱 -->
+            <div class="px-4">
+                <strong>LAST STAND 餐廳 - 後台管理</strong>
+            </div>
+            <!-- 選單列表 -->
+            <div class="overflow-auto">
+
+                <a href="#" class="sidebar-link active px-4">
+                    <i class="bi bi-house me-2"></i>
+                    首頁
+                </a>
+
+                <a href="#menu-order" class="sidebar-link" data-bs-toggle="collapse">
+                    <div class="d-flex justify-content-between px-4">
+                        <p class="mb-0">
+                            <i class="bi bi-card-list me-2"></i>
+                            訂單管理
+                        </p>
+                        <i class="bi bi-caret-down me-2"></i>
+                    </div>
+                </a>
+                <div class="collapse" id="menu-order">
+                    <div>
+                        <a href="#" class="sidebar-link ps-5">
+                            <i class="bi bi-person-lines-fill me-2"></i>
+                            訂單列表
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#" class="sidebar-link px-4">
+                    <i class="bi bi-clipboard-data me-2"></i>
+                    商品管理
+                </a>
+
+                <a href="#" class="sidebar-link px-4">
+                    <i class="bi bi-person me-2"></i>
+                    客戶管理
+                </a>
+
+                <a href="#" class="sidebar-link px-4">
+                    <i class="bi bi-sliders me-2"></i>
+                    設定
+                </a>
+
+            </div>
+            <!-- 登出按鈕 -->
+            <a href="#" class="mt-auto sidebar-link px-4">
+                <i class="bi bi-door-open me-2"></i>
+                登出
+            </a>
+        </aside>
+        <main class="main">
+            <div class="bg-white w-100 border-bottom sticky-top">
+                <a href=""
+                class="d-inline-block py-3 px-4 border-end"
+                id="toggle-btn"
+                ><i class="bi bi-arrows-angle-expand"></i></a>
+            </div>
+
+            <div>
+                <!-- 主要內容區塊 -->
+                
+            </div>
+        </main>
+    </div>
+    <script src="./javascript/all.js"></script>
+</body>
+</html>

@@ -4144,9 +4144,9 @@ textarea.form-control-lg {
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 1px;
   --bs-card-border-color: var(--bs-border-color-translucent);
-  --bs-card-border-radius: 0.375rem;
+  --bs-card-border-radius: 0.75rem;
   --bs-card-box-shadow: ;
-  --bs-card-inner-border-radius: calc(0.375rem - 1px);
+  --bs-card-inner-border-radius: calc(0.75rem - 1px);
   --bs-card-cap-padding-y: 0.5rem;
   --bs-card-cap-padding-x: 1rem;
   --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
@@ -10814,9 +10814,35 @@ textarea.form-control-lg {
   }
 }
 .sidebar {
+  position: fixed;
   width: 280px;
+  top: 0;
   margin-left: -280px;
   transition: margin-left 0.25s;
+}
+.sidebar .sidebar-link {
+  color: #212529;
+  display: block;
+  text-decoration: none;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
+.sidebar .sidebar-link:hover {
+  background-color: rgba(13, 110, 253, 0.16);
+}
+.sidebar .sidebar-link.active {
+  position: relative;
+  color: #0d6efd !important;
+  background-color: rgba(13, 110, 253, 0.16);
+}
+.sidebar .sidebar-link.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2px;
+  height: 100%;
+  width: 3px;
+  background: #0d6efd;
 }
 
 .main {
@@ -10826,6 +10852,10 @@ textarea.form-control-lg {
 .sidebar-toggled .sidebar {
   margin-left: 0;
 }
+.sidebar-toggled .main {
+  margin-left: 280px;
+  transition: margin-left 0.25s;
+}
 
 @media (min-width: 992px) {
   .sidebar {
@@ -10834,6 +10864,8 @@ textarea.form-control-lg {
   }
   .main {
     width: calc(100vw - 280px);
+    margin-left: 280px;
+    transition: margin-left 0.25s;
   }
   .sidebar-toggled .sidebar {
     margin-left: -280px;
