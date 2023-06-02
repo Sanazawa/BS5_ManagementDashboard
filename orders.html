@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Dashboard</title>
+    <link rel="stylesheet" href="./stylesheets/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="d-flex">
+        <aside class="sidebar vh-100 border-end d-flex pt-3 bg-white flex-column">
+            <!-- 後台名稱 -->
+            <div class="px-4">
+                <strong>LAST STAND 餐廳 - 後台管理</strong>
+            </div>
+            <!-- 選單列表 -->
+            <div class="overflow-auto">
+
+                <a href="home.html" class="sidebar-link px-4">
+                    <i class="bi bi-house me-2"></i>
+                    首頁
+                </a>
+
+                <a href="#menu-order" class="sidebar-link" data-bs-toggle="collapse">
+                    <div class="d-flex justify-content-between px-4">
+                        <p class="mb-0">
+                            <i class="bi bi-card-list me-2"></i>
+                            訂單管理
+                        </p>
+                        <i class="bi bi-caret-down me-2"></i>
+                    </div>
+                </a>
+                <div class="collapse" id="menu-order">
+                    <div>
+                        <a href="orders.html" class="sidebar-link active ps-5">
+                            <i class="bi bi-person-lines-fill me-2"></i>
+                            訂單列表
+                        </a>
+                        <a href="order.html" class="sidebar-link ps-5">
+                            <i class="bi bi-journal-text me-2"></i>
+                            單一訂單細節
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#" class="sidebar-link px-4">
+                    <i class="bi bi-clipboard-data me-2"></i>
+                    商品管理
+                </a>
+
+                <a href="#" class="sidebar-link px-4">
+                    <i class="bi bi-person me-2"></i>
+                    客戶管理
+                </a>
+
+                <a href="#" class="sidebar-link px-4">
+                    <i class="bi bi-sliders me-2"></i>
+                    設定
+                </a>
+
+            </div>
+            <!-- 登出按鈕 -->
+            <a href="#" class="mt-auto sidebar-link px-4">
+                <i class="bi bi-door-open me-2"></i>
+                登出
+            </a>
+        </aside>
+        <main class="main">
+            <div class="bg-white w-100 border-bottom sticky-top">
+                <a href="" class="d-inline-block py-3 px-4 border-end" id="toggle-btn"><i
+                        class="bi bi-arrows-angle-expand"></i></a>
+            </div>
+
+            <div class="container p-4">
+                <!-- 主要內容區塊 -->
+                <ul class="nav nav-pills mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link active rounded-pill" aria-current="page" href="#">所有訂𡁘
+                            <span class="badge bg-light rounded-pill text-dark">235</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded-pill" href="#">待處理
+                            <span class="badge bg-light rounded-pill text-dark">56</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded-pill" href="#">已出貨
+                            <span class="badge bg-light rounded-pill text-dark">168</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded-pill disabled">退款
+                            <span class="badge bg-light rounded-pill text-dark">11</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent">
+                        <div class="input-group">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button"
+                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    操作
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">包含內容</a></li>
+                                    <li><a class="dropdown-item" href="#">不包含內容</a></li>
+                                </ul>
+                            </div>
+                            <span class="input-group-text border-0 bg-transparent pe-0">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="search" class="form-control border-0 shadow-none" placeholder="Search">
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="bg-light">
+                                    <tr class="align-middle text-center">
+                                        <th scope="col" class=""></th>
+                                        <th scope="col" class="py-3">訂單編號</th>
+                                        <th scope="col" class="py-3">Email</th>
+                                        <th scope="col" class="py-3">用戶姓名</th>
+                                        <th scope="col" class="py-3">購買商品</th>
+                                        <th scope="col" class="py-3">付款狀態</th>
+                                        <th scope="col" class="py-3">購買金額</th>
+                                        <th scope="col" class="ps-0">編輯</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-nowrap">
+                                    <tr class="align-middle text-center">
+                                        <th scope="row">
+                                            <input type="checkbox" class="form-check-input">
+                                        </th>
+                                        <td>TX4561321</td>
+                                        <td>ab1234@email.com</td>
+                                        <td>雅沙西</td>
+                                        <td>大麥克全餐</td>
+                                        <td class="text-danger">尚未付款</td>
+                                        <td>899</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">
+                                                    編輯<i class="bi bi-pen"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-dark dropdown-toggle"
+                                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    操作
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">修改狀態</a></li>
+                                                    <li><a class="dropdown-item text-danger" href="#"
+                                                            data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                            data-bs-order-id="TX4561321">刪除訂單</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle text-center">
+                                        <th scope="row">
+                                            <input type="checkbox" class="form-check-input">
+                                        </th>
+                                        <td>TX4561322</td>
+                                        <td>cd1234@email.com</td>
+                                        <td>伊兒參</td>
+                                        <td>薯條加大吃不完</td>
+                                        <td class="text-danger">尚未付款</td>
+                                        <td>168</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">
+                                                    編輯<i class="bi bi-pen"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-dark dropdown-toggle"
+                                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    操作
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">修改狀態</a></li>
+                                                    <li><a class="dropdown-item" href="#">刪除訂單</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle text-center">
+                                        <th scope="row">
+                                            <input type="checkbox" class="form-check-input">
+                                        </th>
+                                        <td>TX4561323</td>
+                                        <td>bosscallhq@email.com</td>
+                                        <td>博斯</td>
+                                        <td>太爽啦義大利麵</td>
+                                        <td class="text-success">已付款</td>
+                                        <td>2999</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">
+                                                    編輯<i class="bi bi-pen"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-dark dropdown-toggle"
+                                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    操作
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">修改狀態</a></li>
+                                                    <li><a class="dropdown-item" href="#">刪除訂單</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle text-center">
+                                        <th scope="row">
+                                            <input type="checkbox" class="form-check-input">
+                                        </th>
+                                        <td>TX4561324</td>
+                                        <td>suwo45@email.com</td>
+                                        <td>斯伍</td>
+                                        <td>薯條加大吃不完</td>
+                                        <td class="text-danger">尚未付款</td>
+                                        <td>168</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">
+                                                    編輯<i class="bi bi-pen"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-dark dropdown-toggle"
+                                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    操作
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">修改狀態</a></li>
+                                                    <li><a class="dropdown-item" href="#">刪除訂單</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle text-center">
+                                        <th scope="row">
+                                            <input type="checkbox" class="form-check-input">
+                                        </th>
+                                        <td>TX4561326</td>
+                                        <td>casmer@email.com</td>
+                                        <td>咖斯門</td>
+                                        <td>大麥克全餐</td>
+                                        <td class="text-success">已付款</td>
+                                        <td>766</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">
+                                                    編輯<i class="bi bi-pen"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-dark dropdown-toggle"
+                                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    操作
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">修改狀態</a></li>
+                                                    <li><a class="dropdown-item" href="#">刪除訂單</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle text-center">
+                                        <th scope="row">
+                                            <input type="checkbox" class="form-check-input">
+                                        </th>
+                                        <td>TX4561327</td>
+                                        <td>ioio1414@email.com</td>
+                                        <td>伊歐</td>
+                                        <td>兒童餐椅不給坐</td>
+                                        <td class="text-danger">尚未付款</td>
+                                        <td>1199</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">
+                                                    編輯<i class="bi bi-pen"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-dark dropdown-toggle"
+                                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    操作
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">修改狀態</a></li>
+                                                    <li><a class="dropdown-item" href="#">刪除訂單</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle text-center">
+                                        <th scope="row">
+                                            <input type="checkbox" class="form-check-input">
+                                        </th>
+                                        <td>TX4561328</td>
+                                        <td>cd1234@email.com</td>
+                                        <td>喵利歐</td>
+                                        <td>肥宅快樂水</td>
+                                        <td class="text-success">已付款</td>
+                                        <td>98</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">
+                                                    編輯<i class="bi bi-pen"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-dark dropdown-toggle"
+                                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    操作
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">修改狀態</a></li>
+                                                    <li><a class="dropdown-item" href="#">刪除訂單</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent py-3">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end mb-0">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">刪除訂單</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>你確認是否刪除「<span id="deleteText"></span>」該訂單？</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger">確認刪除</button>
+                                    <button type="button" class="btn btn-outline-dark"
+                                        data-bs-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        const modalByDelete = document.querySelector('#deleteModal');
+                        modalByDelete.addEventListener('show.bs.modal', (e) => {
+                            const button = e.relatedTarget;
+                            const orderId = button.dataset.bsOrderId;
+                            const modalText = modalByDelete.querySelector('#deleteText');
+                            modalText.textContent = orderId;
+                        })
+                    </script>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./javascript/all.js"></script>
+</body>
+
+</html>
