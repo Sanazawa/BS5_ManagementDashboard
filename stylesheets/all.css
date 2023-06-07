@@ -12058,6 +12058,14 @@ textarea.form-control-lg {
   width: 3px;
   background: #0d6efd;
 }
+.sidebar .sidebar-link.disabled {
+  position: relative;
+  pointer-events: none;
+  color: rgba(108, 117, 125, 0.5);
+}
+.sidebar .sidebar-link.disabled:hover {
+  background-color: rgba(108, 117, 125, 0);
+}
 
 .main {
   width: 100%;

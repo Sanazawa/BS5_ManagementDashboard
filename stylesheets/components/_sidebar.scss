@@ -33,6 +33,15 @@ $sidebar-width: 280px;
             background: $primary;
         }
     }
+
+    .sidebar-link.disabled {
+        position: relative;
+        pointer-events: none;
+        color: rgba($secondary, 0.5);
+        &:hover{
+            background-color: rgba($secondary, 0);
+        }
+    }
 }
 
 .main {
